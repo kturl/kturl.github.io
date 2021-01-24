@@ -1,0 +1,135 @@
+:root {
+  font-size: 20px;
+}
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(https://ae01.alicdn.com/kf/HTB1APMXXCtYBeNjSspaq6yOOFXao/Ripe-Pear-Fruit-Wall-Vinyl-Backdrop-Backdrop-Background-Photo-Background-Photo-Studio-Background-XT-6524.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 97vh;
+}
+.fa {
+  padding: 8px;
+  font-size: 30px;
+  width: 46px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 50%;
+  color: white;
+}
+.fa-reddit {
+  background: #ff5700;
+}
+.fa-reddit:hover {
+  background: #ffa070;
+}
+.fa-google {
+  background: #dd4b39;
+}
+.fa-google:hover {
+  background: #db786b;
+}
+.fa-twitter {
+  background: #55ACEE;
+}
+.fa-twitter:hover {
+  background: #97c0e0;
+}
+p {
+  font-size: .5em;
+}
+.shadowText {
+  text-shadow: 2px 3px 4px black;
+}
+.container {
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  font-size: 1.5em;
+  background: linear-gradient(0.25turn, rgb(255, 196, 0), rgb(255, 72, 0));
+  height: inherit;
+  width: 85%;
+  padding: 10px;
+  box-shadow: 4px 4px 13px 1px black;
+}
+.underlay {
+  color: white;
+  font-size: 1em;
+  text-align: center;
+}
+.overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 20px;
+  background-color: rgba(70, 63, 55, 1);
+  font-size: 1em;
+  height: inherit;
+  width: 42.5%;
+  z-index: 10;
+  box-shadow: 1px 1px 7px 2px black;
+}
+.overlayText {
+  background: -webkit-linear-gradient(0.25turn, rgb(255, 196, 0), rgb(255, 72, 0));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+.signInOverlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signUpOverlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.btn{
+  cursor: pointer;
+  background-color: inherit;
+  color: inherit;
+  border: 1px solid white;
+  border-radius: 1em;
+  text-align: center;
+  padding: .3em .5em;
+  box-shadow: 2px 3px 4px black;
+}
+.btn:hover {
+  opacity: 0.5;
+}
+.isVisible {
+  display: flex;
+}
+.notVisible {
+  display: none;
+}
+.slide {
+  transform: translateX(100%) /*rotate(360deg)*/;
+  transition-timing-function: cubic-bezier(1, .75, .5, 1.5);
+  transition-duration: 0.5s;
+}
+.slideBack {
+  transform: translateX(0%) /*rotate(360deg)*/;
+  transition-timing-function: cubic-bezier(1, .75, .5, 1.5);
+  transition-duration: 0.5s;
+}
