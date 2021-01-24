@@ -19,9 +19,9 @@ body {
   height: 97vh;
 }
 .fa {
-  padding: 8px;
-  font-size: 30px;
-  width: 46px;
+  padding: 0.4rem;
+  font-size: 1.5rem;
+  width: 2.3rem;
   text-align: center;
   text-decoration: none;
   border: 1px solid white;
@@ -65,9 +65,18 @@ p {
   box-shadow: 4px 4px 13px 1px black;
 }
 .underlay {
+  display: flex;
+  justify-content: center;
+  align-items: center ;
   color: white;
   font-size: 1em;
   text-align: center;
+}
+input {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: .75em;
+  padding: 5px;
+  margin: 5px 0;
 }
 .overlay {
   display: flex;
@@ -104,7 +113,7 @@ p {
   justify-content: center;
   align-items: center;
 }
-.btn{
+.btn {
   cursor: pointer;
   background-color: inherit;
   color: inherit;
@@ -113,6 +122,10 @@ p {
   text-align: center;
   padding: .3em .5em;
   box-shadow: 2px 3px 4px black;
+}
+.form-btn {
+  padding: 0.5rem;
+  border-radius: 1.5rem;
 }
 .btn:hover {
   opacity: 0.5;
@@ -132,4 +145,32 @@ p {
   transform: translateX(0%) /*rotate(360deg)*/;
   transition-timing-function: cubic-bezier(1, .75, .5, 1.5);
   transition-duration: 0.5s;
+}
+
+@media only screen and (min-width: 900px) {
+  .container {
+    width: 55%
+  }
+  .overlay {
+    width: 27.5%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+ :root {
+   font-size: 14px;
+ }
+.container {
+  width: 95%;
+  margin-right: 15px;
+}
+.overlay {
+  width: 47.5%;
+}
+input {
+  width: 60%;
+}
+.fa {
+  width: 37px;
+}
 }
