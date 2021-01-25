@@ -1,19 +1,23 @@
 :root {
-  font-family: 'Courier New', Courier, monospace;
-  
-}
-body {
-  display: flex;
-  justify-content: center;
-  font-size: 9px;
-  background-color: rgb(65, 74, 78);
-  color:red;
-  text-shadow: 3px 3px 2px yellow;
+  font-family: 'Courier New', Courier, monospace; 
 }
 a {
   text-decoration: none;
   color: inherit;
 }
+.fullGame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 9px;
+  color:red;
+  text-shadow: 3px 3px 2px yellow;
+  padding: 10px;
+  margin: 10px;
+  width: 75%;
+}
+
 .buttonBar {
   display: flex;
   max-width: 715px;
