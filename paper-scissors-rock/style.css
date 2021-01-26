@@ -1,25 +1,26 @@
-:root {
+html {
   font-family: 'Courier New', Courier, monospace; 
-}
-a {
-  text-decoration: none;
-  color: inherit;
+  font-size: 20px;
+  overflow: hidden;
 }
 .fullGame {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 9px;
+  font-size: .5em;
+  font-weight: 600;
   color:red;
   text-shadow: 3px 3px 2px yellow;
-  padding: 10px;
-  margin: 10px;
+  padding: 1em;
+  margin: 1em;
   width: 75%;
 }
 
-.buttonBar {
+.gamePanel {
   display: flex;
+  position: relative;
+  top: 3rem;
   max-width: 715px;
   max-height: auto;
   flex-direction: column;
@@ -29,7 +30,8 @@ a {
   border: 2px solid black;
   border-radius: .75em;
   background: rgb(107, 118, 122);
-  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.5),
+              -6px 0px 5px 0px rgba(0, 0, 0, 0.5);
 }
 .flexRow {
   display: flex;

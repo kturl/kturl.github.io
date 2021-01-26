@@ -13,25 +13,35 @@
 
 <body>
   <div class="navBar">
-    <div class="home">
-      <a href="..\home.html">Home</a>
+    <a title="Home" href="..\home.html" class="home"><div>Home</div></a>
+    <div class="toggle-nav" onclick="menuDisplay()">
+      &#9776;
     </div>
-      <div class="toggle-nav" onclick="menuDisplay()">
-        &#9776;
-      </div>
     <div id="topNav" class="top-nav">
       <ul id="menu">
-        <li class="link"><a href="index.html">Paper, Scissors, Rock!</a></li>
-        <li class="link"><a href="#">Link 2</a></li>
-        <li class="link"><a href="#">Link 3</a></li>
-        <li class="link"><a href="#">Link 4</a></li>
-        <li class="link"><a href="#">Link 5</a></li>
-        <li class="link"><a href="..\index.html">Sign Out</a></li>
+        <li class="link">
+          <a title="Paper Scissors Rock" href="index.html">Paper, Scissors, Rock!</a>
+        </li>
+        <a title="Codenames" href="..\codenames\index.html">
+          <li class="link">Codenames</li>
+        </a>
+        <a href="#">
+          <li class="link">Link 3</li>
+        </a>
+        <a href="#">
+          <li class="link">Link 4</li>
+        </a>
+        <a href="#">
+          <li class="link">Link 5</li>
+        </a>
+        <a title="Sign Out" href="..\index.html">
+          <li class="link">Sign Out</li>
+        </a>
       </ul>
     </div>
   </div>
   <div class="fullGame">
-    <div class="buttonBar">
+    <div class="gamePanel">
       <span>CHOOSE YOUR WEAPON:</span>
       <div class="flexRow">
         <div id="paper" class="paper opt titleIcons"></div>
