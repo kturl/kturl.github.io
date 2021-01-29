@@ -1,32 +1,39 @@
 html {
-  background: grey;
+  background: rgb(102, 100, 124);
   font-family: Arial, Helvetica, sans-serif;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 125%;
+}
+body {
+  /* background: url(https://www.cbc.ca/kidsnews/content/Frogs-school.jpg); */
+  background-size: cover;
+  background-position: bottom;
 }
 .navBar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(.25turn, rgb(47, 0, 100) 50%, rgb(5, 0, 10));
-  padding: 0.25rem 0.5rem;
+  background: url(https://images.unsplash.com/photo-1508612227635-e7cbb9bdf54d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1440&q=80);
+  background-position: center;
+  background-size: cover;
+  background: linear-gradient(.25turn,rgb(26, 40, 43) , rgb(8, 12, 14));
+  padding: 0.5rem 0.5rem;
   height: 2rem;
   margin: 0;
+  font-weight: 600;
 }
 .navItems {
   display: flex;
   justify-content: space-around;
   width: 75%;
-  border: 1px solid white
+  /* border: 1px solid white */
 }
 .navItem {
   padding: 0.25rem .75rem;
-  background: rgba(0, 0, 255, 0.384);
-  /* border: 2px solid black; */
+  /* background: rgba(0, 0, 255, 0.384); */
   border-radius: .75rem;
   box-sizing: border-box;
-  /* width: 100%; */
 }
 .homeBtn {
 }
@@ -34,34 +41,46 @@ html {
   display: none;
 }
 .signOut {
-  background: red;
+  /* background: red; */
 }
+.navItem:hover {
+  background:rgba(255, 255, 255, 0.2);
+}
+
 /* Show the object or don't */
 .show { display: block; }
-.flexShow { display: flex; }
+
 .noShow { display: none; }
 
-@media only screen and (max-width: 792px) {
+
+@media only screen and (min-width: 613px) {
+  .navItems {
+    display: flex;
+  }
+}      
+@media only screen and (max-width: 816px) {
   html {
     font-size: 93.75%;
   }
 }
 
-@media only screen and (max-width: 595px) {
+@media only screen and (max-width: 612px) {
   .navItems {
     display: none;
     flex-direction: column;
     justify-content: flex-start;
     position: absolute;
-    top: 2.75rem;
-    right: 7rem;
-    width: auto;
+    top: 3.25rem;
+    right: 6rem;
+    background: linear-gradient(0.25turn, rgb(26, 40, 43) 1%, rgb(8, 12, 14));
+    width: 8rem;
   }
   .toggle {
     display: block;
     position: absolute;
     width: auto;
-    top: .3rem;
-    right: 8rem;
+    top: .55rem;
+    right: 8.5rem;
   }
+  .flexShow { display: flex; }
 }

@@ -6,6 +6,9 @@
   <!----- GLOBAL STYLESHEET ----->
   <link rel="stylesheet" href="globalStyles.css" type="text/css">
   <link rel="stylesheet" href="navstyles.css" type="text/css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+</head>
   <title>The Projects</title>
 </head>
 <body>
@@ -13,7 +16,7 @@
     <a title="Home" href="#">
       <div class="navItem homeBtn">Home</div>
     </a>
-    <div class="navItems">
+    <div id="navMenu" class="navItems">
       <a title="#" href="#">
         <div class="navItem">Link 1</div>
       </a>
@@ -30,14 +33,11 @@
         <div class="navItem">Link 5</div>
       </a>
     </div>
-    <a title="Toggle Menu" href="">
-      <div class="navItem toggle " >|||</div> 
-    </a>
+    <div title="Toggle Menu" id="toggle" class="navItem toggle " ><i class="far fa-caret-square-down" style="font-size: 1.5em;"></i></div> 
     <a title="Sign Out" href="#">
       <div class="navItem signOut">Sign Out</div>
     </a>
   </div>
-  
   <script src="nav.js"></script>
 </body>
 </html>
