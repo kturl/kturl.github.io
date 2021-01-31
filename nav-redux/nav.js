@@ -2,10 +2,10 @@ const toggle = document.querySelector('.toggle');
 const navMenu = document.getElementById('navMenu');
 const navItem = document.querySelectorAll('.navItem');
 
-const carot = document.getElementById('carot');
+// const carot = document.getElementById('carot');
 
 toggle.addEventListener('click', toggleMenu);
-carot.addEventListener('click', toggleMenu);
+// carot.addEventListener('click', toggleMenu);
 function toggleMenu() {
   navMenu.classList.toggle('flexShow');
   removeMenu();
