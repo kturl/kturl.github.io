@@ -1,0 +1,142 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  background: url(https://png.pngtree.com/thumb_back/fh260/background/20190619/pngtree-sweet-avocado-seamless-pattern-image_130885.jpg);
+  background-position: center;
+  background-size: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+  color: #d5e0cf;
+}
+.navBar {
+  display: flex;
+  /* position: static; need to figure out what STATIC really does */
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  /* height: 3em; */
+  padding: .75rem 0.5rem;
+  background-color: #1a282b;
+  width: 100%;
+}
+
+/*---contains the links and the toggle---*/
+.top-nav {
+  align-items: center;
+  /* border: 1px solid cyan; */
+}
+.toggle-nav {
+  display: none;
+  color: #d5e0cf;
+  background-color: #2f484f;
+  border: 1px solid #d5e0cf;
+  text-align: center;
+  padding: .2rem .75rem;
+}
+.home {
+  color: #d5e0cf;
+  align-self: center;
+  position: absolute;
+  left: 25px;
+  border: 1px solid #d5e0cf;
+  border-radius: .75rem;
+  padding: 0.25rem 0.5rem;
+  background-color:#2f484f;
+}
+ul {
+  display: inline-flex;
+  background-color:#1a282b;
+  margin: auto;
+  padding: 0 .25em;
+  list-style-type: none;
+  width: fit-content;
+  position: relative;
+  z-index: 1;
+}
+ul li {
+  border: 1px solid #d5e0cf;
+  background-color: #2f484f;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem 0.5rem;
+  border-radius: 0.75rem;
+}
+ul li a {
+  width: 100%;
+  height: 100%;
+  color: #d5e0cf;
+}
+.home:hover, .link:hover, .toggle-nav:hover {
+  background-color:  #1a282b;
+  cursor: pointer;
+} 
+.home:focus, .link:focus, .toggle-nav:focus {
+  background-color: black;
+}
+/*-----Responsive Screen-----*/
+
+@media only screen and (max-width: 760px) {
+  header {
+    display: flex;
+    position: static;
+    justify-content: flex-end;
+    align-items: center;
+    height: 2.75em;
+    background-color: #1a282b;
+  }
+  .top-nav {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    height: auto;
+    top: 2.75rem;
+    right: 13px;
+    justify-content: space-around;
+  }
+  .show {
+    display: flex;
+  }
+/*Links List*/
+  ul {
+    /* display: none; */
+    flex-direction: column; /*or row;, but requires some finessing*/
+    background-color:#2f484f;
+    box-shadow: 0px 5px 16px 4px rgba(0,0,0,0.5);
+    padding: 0.25em 0;
+    width: fit-content;
+    z-index: 1;
+  }
+  /*--menu arrow--*/
+  ul::after {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0.1rem;
+    right: 35px;
+    content: '';
+    transform: translate(100%, -100%);
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+    border-bottom:8px solid#2f484f;
+  }
+  ul li {
+    color: #d5e0cf;
+    background-color: #1a282b;
+  }
+  .toggle-nav {
+    display: block;
+    margin-right: 5px;
+    z-index: 1;
+    background-color:  #2f484f;
+  }
+  .link:hover {
+    background-color: #2f484f;
+    cursor: pointer;
+  }
+  .toggle-nav:hover {
+    background-color: #1a282b; 
+  }
+}
