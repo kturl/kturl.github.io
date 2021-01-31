@@ -1,4 +1,4 @@
-:root {
+html {
   font-family: 'Courier New', Courier, monospace; 
 }
 a {
@@ -123,14 +123,14 @@ a {
 }
 
 @media only screen and (max-width: 675px) {
-  body {
+  .fullGame {
   font-size: 8px;
   }
 }
 
 
 @media only screen and (max-width: 564px) {
-  body {
+  .fullGame {
   font-size: 6px;
   }
 }
