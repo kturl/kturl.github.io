@@ -1,23 +1,34 @@
-const toggle = document.getElementById('toggle');
+const toggle = document.querySelector('.toggle');
 const navMenu = document.getElementById('navMenu');
+const navItem = document.querySelectorAll('.navItem');
+
+const carot = document.getElementById('carot');
 
 toggle.addEventListener('click', toggleMenu);
-
-// navMenu.addEventListener('click', closeMenu);
-
+carot.addEventListener('click', toggleMenu);
 function toggleMenu() {
-  
-  if (navMenu.classList.contains('flexshow') || navMenu.style.display === "") {
-    navMenu.classList.toggle('flexShow');
-  }
-  window.addEventListener('click', function(e) {
-    if (!e.target.matches('.navItems')) {
-      if (navMenu.classList.contains('flexshow')) {
-        navMenu.classList.remove('flexShow');
+  navMenu.classList.toggle('flexShow');
+  removeMenu();
+}
+
+function removeMenu() { 
+  window.addEventListener('click', function(event) {  
+  let clickedItem = event.target;
+    if (!clickedItem.matches('.toggle') && !clickedItem.matches('.navItem') && !clickedItem.matches('.far')) {
+      if (navMenu.classList.contains('flexShow')) {
+    // console.log(clickedItem);
+    
+      navMenu.classList.toggle('flexShow');
+        console.log(clickedItem);
       }
     }
   });
 }
+// navMenu.addEventListener('click', closeMenu);
+
+
+
+
 
 // function removeMenu() {
 //   window.addEventListener('click', function(e) {
