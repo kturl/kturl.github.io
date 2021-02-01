@@ -1,0 +1,91 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+body {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(104, 104, 141);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* .wholeShebang {
+  border: 1px solid white;
+} */
+.application {
+  display: flex;
+  flex-direction: column;
+  /* flex: 1 1 0; need to figure this out for responsiveness*/
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.headerRow {
+  /* border: 1px solid white; */
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 0 0 10px 0;
+}
+.title {
+  /* border: 1px solid white; */
+  font-size: 2em;
+}
+.team {
+  display: flex;
+  align-items: center;
+}
+.red {
+  /* border: 1px solid white; */
+  color: rgb(122, 0, 0);
+  margin-left: 15px;
+}
+.blue {
+  /* border: 1px solid white; */
+  color: rgb(0, 0, 141);
+  margin-right: 15px;
+}
+.endTurn {
+  border: 2px solid rgb(214, 214, 214);
+  background-color: rgb(172, 172, 172);
+  border-radius: 5px;
+  padding: 3px 8px;
+}
+.endTurn:hover {
+  background-color: rgb(126, 126, 126);
+}
+.gameBoard {
+  /* border: 1px solid white; */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 10px;
+}
+.card {
+  display: flex;
+  height: 100px;
+  width: 162px;
+  border-radius: .5em;
+  border: 2px solid black;
+  background-color: rgb(165, 132, 0);
+  justify-content: center;
+  align-items: center;
+}
+.card:hover {
+  background-color: rgb(226, 192, 53);
+}
+.choseRed {
+  background-color: rgb(122, 0, 0);
+}
+.choseBlue {
+  background-color: rgb(0, 0, 141);
+}
+.choseNeutral {
+  background-color: rgb(138, 132, 76);
+}
+.choseBlack {
+  background-color: rgb(22, 22, 27);
+}
