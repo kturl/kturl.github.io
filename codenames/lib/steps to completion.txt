@@ -1,0 +1,19 @@
+- randomly generate an array with a color property assigned to each of the 25 items [DONE]
+
+- assign 'colour' properties (red/blue/neutral/black) to each of the items in the list [DONE]
+// assign death properties
+// assign red properties
+// assign blue properties
+// the rest become neutral
+
+- assign the ith item to the ith card/div
+-- the cards should already have all colour info attached by now [DONE]
+--- add the 'word.color' to the classList of each card
+----the onclick event will toggle the colour change and the colour property will do nothing until the card is clicked
+
+- change click activity (if it's red card and red clicks, confirm and add point, change card color to red. if it's red card and blue clicks it, switch to red's turn, give pt to red, etc)
+-- on a win, show all remaining cards and colours
+
+something like:
+
+onclick => if (
