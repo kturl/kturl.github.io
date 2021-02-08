@@ -6,7 +6,6 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
 .navBar {
   box-shadow: 0px 4px 5px 5px rgba(0, 0, 0, 0.4);
 }
@@ -19,7 +18,6 @@ a {
   color: rgb(157, 255, 0);
   margin: 20px;
   font-weight: 600;
-  /* background-color: rgb(104, 104, 141); */
 }
 .wordList {
   display: flex;
@@ -47,6 +45,7 @@ ul {
   padding-left: 0;
 }
 .button {
+  cursor: pointer;
   background-color: rgb(0, 0, 0);
   color: rgb(182, 141, 141);
   border-radius: 1rem;
@@ -87,22 +86,18 @@ ul {
                 -0.3rem -0.5rem .5em rgb(238, 255, 0);
 }
 .redScore {
-  /* border: 1px solid white; */
   grid-column: 1 / span 1;
   grid-row: 2/ span 1;
 }
 .blueScore {
-  /* border: 1px solid white; */
   grid-column: 2 / span 1;
   grid-row: 2/ span 1;
 }
-.red {
-  /* border: 1px solid white; */
+.redHeader {
   color: rgb(160, 0, 0);
   margin-right: 15px;
 }
-.blue {
-  /* border: 1px solid white; */
+.blueHeader {
   color: rgb(0, 0, 207);
   margin-left: 15px;
 }
@@ -121,7 +116,6 @@ ul {
   background-color: rgb(126, 126, 126);
 }
 .gameBoard {
-  /* border: 1px solid white; */
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -129,18 +123,14 @@ ul {
 }
 .card {
   cursor: pointer;
-  display: flex;
   height: 5rem;
   width: 8.06rem;
   border-radius: .75rem;
   font-size: 1rem;
   color: rgb(255, 255, 255);
-  /* background-color: rgb(165, 132, 0); */
   background: url('cardback.jpg');
   background-position: center;
   background-size: cover;
-  justify-content: center;
-  align-items: center;
   box-shadow: inset 3px 0px 1px 2px rgba(255, 255, 255, 0.7),
               inset -3px 0px 1px 2px rgba(255, 255, 255, 0.7),
               inset 0px 3px 1px 2px rgba(255, 255, 255, 0.7),
@@ -148,22 +138,30 @@ ul {
               8px 4px 4px 2px rgba(0, 0, 0, 0.4),
               -8px 4px 4px 2px rgba(0, 0, 0, 0.4);
 }
-.card:hover {
-  background-position: center;
-  background-size: cover;
-  background: url('cardback.jpg'), rgba(0, 0, 0, 0.2);
-  
-              
+.cardOverlay {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  justify-content: center;
+  align-items: center;
 }
-.choseRed {
-  background-color: rgb(122, 0, 0);
+.cardOverlay:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  /* background-position: center; */
+  /* background-size: cover; */
+  /* background: url('cardback.jpg'), rgba(0, 0, 0, 0.2); */
 }
-.choseBlue {
-  background-color: rgb(0, 0, 141);
+.red {
+  background-color: rgba(122, 0, 0, 0.4);
+
 }
-.choseNeutral {
-  background-color: rgb(138, 132, 76);
+.blue {
+  background-color: rgba(0, 0, 255, 0.4);
 }
-.choseBlack {
-  background-color: rgb(22, 22, 27);
+.neutral {
+  background-color: rgba(138, 132, 76, 0.4);
+}
+.black {
+  background-color: rgba(22, 22, 27, 0.9);
 }

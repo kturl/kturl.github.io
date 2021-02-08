@@ -18,14 +18,15 @@ function freshList() {
   if (ul.childElementCount >= 0) {
     ul.innerHTML = '';
   }
+
   // generate the random word list (as objects)
   genWordList();
-  // assign death card first, at random
+  // clear color properties before new ones are added
+  removeColor();
+  // assign death card first, at random, then red then blue cards (the order isn't important), then assign the rest as neutral
   assignDeath();
-  // assign red then blue cards (the order isn't important)
   assignRed();
   assignBlue();
-  // assign the rest as neutral
   assignNeutral();
   assignWord();
 }
@@ -59,9 +60,10 @@ function printList(wordList) {
 
 function assignDeath () {
 // generate a random number, x = 0-25 and make that card black
-  let x = Math.floor(Math.random() * 24);
-  words[x].color = "black"
+let x = Math.floor(Math.random() * 24);
+words[x].color = "black"
 }
+
 function assignRed () {
 // generate a random number, x = 0-25
   for (let i = 0; i < 8; i++) {
@@ -96,11 +98,25 @@ function assignWord() {
   for (let i = 0; i < cards.length; i++) {
     let cardContent = document.getElementById('word' + i);
     cardContent.textContent = words[i].word;
+    // cardContent.classList.remove(prevColor);
+    cardContent.classList.add(words[i].color);
   }
 }
 
-//   for (let i = 0; i < cards.length; i++) {
-
+function removeColor() {
+  for (let i = 0; i < words.length; i++) {
+    let cardContent = document.getElementById('word' + i);
+    if (cardContent.classList.contains('red')) {
+      cardContent.classList.remove('red');
+    } else if (cardContent.classList.contains('blue')) {
+      cardContent.classList.remove('blue');
+    } else if (cardContent.classList.contains('black')) {
+      cardContent.classList.remove('black');
+    } else if (cardContent.classList.contains('neutral')) {
+      cardContent.classList.remove('neutral');
+    }
+  }
+}
 //   }
 // });
 // to assign the correct colours to the cards...
