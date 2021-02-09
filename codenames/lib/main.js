@@ -10,9 +10,8 @@ let ul = document.getElementById('wordList');
 let words = [];
 
 //Event Listeners
-cardOverlays.forEach(card => card.addEventListener('click', function (){
+cardOverlays.forEach(card => card.addEventListener('click',   function (){
     let cardColor = this.getAttribute('data-card-color');
-    
     this.classList.add(cardColor);
   }));
 
@@ -28,7 +27,6 @@ function freshList() {
   // assign death card first, at random, then red then blue cards (the order isn't important), then assign the rest as neutral
   assignDeath();
   assignRed();
-  // redListen();
   assignBlue();
   assignNeutral();
   assignWord();

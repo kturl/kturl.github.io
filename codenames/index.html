@@ -40,23 +40,19 @@
   </div>
   
   <div class="wholeShebang">
-    <div class="wordList">
-      <button class="button" onclick="freshList()">NEW GAME</button>
-      <ul id="wordList"></ul>
-    </div>
     <div class="application">
+      <span class="title">CODENAMES</span>
       <div class="headerRow">
-          <span class="title">CODENAMES</span>
-          <div class="team redScore">
-            <div class="redHeader endTurn">End Turn</div>
-            <div class="redHeader">Red Team</div>
-            <div class="redHeader score">0</div>
-          </div>
-          <div class="team blueScore">
-            <div class="blueHeader score">0</div>
-            <div class="blueHeader">Blue Team</div>
-            <div class="blueHeader endTurn">End Turn</div>
-          </div>
+        <div class="team redScore">
+          <div class="redHeader endTurn">End Turn</div>
+          <div class="redHeader">Red Team</div>
+          <div class="redHeader score">0</div>
+        </div>
+        <div class="team blueScore">
+          <div class="blueHeader score">0</div>
+          <div class="blueHeader">Blue Team</div>
+          <div class="blueHeader endTurn">End Turn</div>
+        </div>
       </div>
       <div class="gameBoard">
 
@@ -91,6 +87,10 @@
         <div class="card"><span id="card24" class="cardOverlay"><span id="word24" class="word"></span></span></div>
 
       </div>
+    </div>
+    <div class="wordList">
+      <button class="button" onclick="freshList()">NEW GAME</button>
+      <ul id="wordList"></ul>
     </div>
   </div>
 <script src="lib/main.js" type="text/javascript"></script>
