@@ -6,20 +6,32 @@ const dictionary = ["AFRICA", "AGENT", "AIR", "ALIEN", "ALPS", "AMAZON", "AMBULA
 //Relevant Elements
 const cards = document.querySelectorAll('.card');
 const cardOverlays = document.querySelectorAll('.cardOverlay');
+// const redOverlays = document.querySelectorAll('.red');
+// const blueOverlays = document.querySelectorAll('.blue');
+
 let ul = document.getElementById('wordList');
 let words = [];
+let redScore = document.querySelector('.redScore');
+let blueScore = document.querySelector('.blueScore');
+let redPoints = 0;
+let bluePoints = 0;
 
 //Event Listeners
-cardOverlays.forEach(card => card.addEventListener('click',   function (){
-    let cardColor = this.getAttribute('data-card-color');
-    this.classList.add(cardColor);
-  }));
+cardOverlays.forEach(card => card.addEventListener('click', colorReveal));
+cardOverlays.forEach(card => card.addEventListener('click', score));
 
 // Funky Functions
 function freshList() {
   if (ul.childElementCount >= 0) {
     ul.innerHTML = '';
   }
+  cardOverlays.forEach(card => card.addEventListener('click', colorReveal));
+  cardOverlays.forEach(card => card.addEventListener('click', score));
+  //reset the scores
+  redPoints = 0;
+  bluePoints = 0;
+  redScore.innerHTML = redPoints;
+  blueScore.innerHTML = bluePoints;
   // clear color properties before new ones are added
   removeColor();
   // generate the random word list (as objects)
@@ -30,6 +42,11 @@ function freshList() {
   assignBlue();
   assignNeutral();
   assignWord();
+}
+
+function colorReveal(){
+  let cardColor = this.getAttribute('data-card-color');
+  this.classList.add(cardColor);
 }
 
 function genWordList() {
@@ -110,6 +127,23 @@ function removeColor() {
     let cardColor = currentCard.getAttribute('data-card-color');
     currentCard.classList.remove(cardColor);
     currentCard.setAttribute('data-card-color', '');
+  }
+}
+
+// added to an eventListener, this checks the card colour and scores game accordingly
+function score() {
+  let cardColor = this.getAttribute('data-card-color');
+  if (cardColor === 'red') {
+    redPoints++;
+    redScore.innerHTML = redPoints;
+    console.log('RED: ' + redPoints + ' vs. BLUE: ' + bluePoints);
+    this.removeEventListener('click', score);
+  } 
+  else if (cardColor === 'blue') {
+    bluePoints++;
+    blueScore.innerHTML = bluePoints;
+    console.log('RED ' + redPoints + ' vs. BLUE: ' + bluePoints);
+    this.removeEventListener('click', score);
   }
 }
 //   }

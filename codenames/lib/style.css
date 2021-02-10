@@ -109,13 +109,13 @@ li {
   text-shadow:  0.1rem 0.1rem .5rem rgb(255, 153, 0),
                 -0.3rem -0.5rem .5em rgb(238, 255, 0);
 }
-.redScore {
+.redBar {
   grid-column: 1 / span 1;
   grid-row: 2/ span 1;
   border: 2px dashed rgb(160, 0, 0);
   padding: .25rem 0.25rem;
 }
-.blueScore {
+.blueBar {
   grid-column: 2 / span 1;
   grid-row: 2/ span 1;
   border: 2px dashed rgb(0, 0, 207);
@@ -144,7 +144,7 @@ li {
   font-size: 1rem;
   border-radius: 5px;
   padding: 3px 1rem;
-  margin: 0 0.25rem
+  margin: 0 2rem;
 }
 .endTurn:hover {
   background-color: rgba(238, 238, 238, 0.6);
@@ -205,7 +205,7 @@ li {
               inset 0px 3px 1px 2px rgba(160, 0, 0, 1),
               inset 0px -3px 1px 2px rgba(160, 0, 0, 1);
   transition: ease-out cubic-bezier(0, 1, 0, 1);
-  transition-duration: 1.5s;
+  transition-duration: 1.2s;
 }
 .blue {
   color: rgba(0, 0, 255, 1);
@@ -215,7 +215,7 @@ li {
             inset 0px 3px 1px 2px rgba(0, 0, 255, 1),
             inset 0px -3px 1px 2px rgba(0, 0, 255, 1);
   transition: ease-out cubic-bezier(0, 1, 0, 1);
-  transition-duration: 1.5s;
+  transition-duration: 1.2s;
 }
 .neutral {
   color: rgb(148, 145, 1);
@@ -225,7 +225,7 @@ li {
               inset 0px 3px 1px 2px rgba(148, 145, 1, 1),
               inset 0px -3px 1px 2px rgba(148, 145, 1, 1);
   transition: ease-out cubic-bezier(0, 1, 0, 1);
-  transition-duration: 1.5s;
+  transition-duration: 1.2s;
 }
 .black {
   color: rgba(104, 33, 146, 1);
