@@ -6,13 +6,10 @@ const dictionary = ["AFRICA", "AGENT", "AIR", "ALIEN", "ALPS", "AMAZON", "AMBULA
 //Relevant Elements
 const cards = document.querySelectorAll('.card');
 const cardOverlays = document.querySelectorAll('.cardOverlay');
-// const redOverlays = document.querySelectorAll('.red');
-// const blueOverlays = document.querySelectorAll('.blue');
-
 let ul = document.getElementById('wordList');
-let words = [];
 let redScore = document.querySelector('.redScore');
 let blueScore = document.querySelector('.blueScore');
+let words = [];
 let redPoints = 0;
 let bluePoints = 0;
 
@@ -32,9 +29,8 @@ function freshList() {
   bluePoints = 0;
   redScore.innerHTML = redPoints;
   blueScore.innerHTML = bluePoints;
-  // clear color properties before new ones are added
+
   removeColor();
-  // generate the random word list (as objects)
   genWordList();
   // assign death card first, at random, then red then blue cards (the order isn't important), then assign the rest as neutral
   assignDeath();
@@ -49,14 +45,14 @@ function colorReveal(){
   this.classList.add(cardColor);
 }
 
+// creates a random number from 0 to dictionary.length-1 [because the index number are 0 to 1 less than the length of the array] and chooses 25 corresponding words to place into words[]
 function genWordList() {
   words = [];
-  // creates a random number from 0 to dictionary.length-1 [because the index number are 0 to 1 less than the length of the array] and chooses 25 corresponding words to place into words[]
   for ( let i = 0; i < 25; i ++ ) {
     let x = Math.floor(Math.random() * ((dictionary.length) - 1));
   //ensures each word in the list is an object with a default 'false' color property
     let currentWord = { word:dictionary[x], color: false }
-  // if/else checks if the word is already in the list before pushing it to words [] or setting the for loop back one iteration
+  // if/else checks if the word is already in the list before pushing it to words[] or setting the for loop back one iteration
     if (words.includes(currentWord)) {
       i--;
     } else {
@@ -68,6 +64,7 @@ function genWordList() {
   return words;
 }
 
+//prints the words to the wordlist
 function printList(wordList) {
   for ( let j = 0; j < wordList.length; j++ ) {
     let li = document.createElement('li');
@@ -76,34 +73,39 @@ function printList(wordList) {
   }
 }
 
-function assignDeath () {
 // generate a random number, x = 0-25 and make that card black
-let x = Math.floor(Math.random() * 24);
-words[x].color = "black"
+function assignDeath () {
+  let x = Math.floor(Math.random() * 24);
+  words[x].color = "black"
 }
 
 function assignRed () {
 // generate a random number, x = 0-25
   for (let i = 0; i < 8; i++) {
     let x = Math.floor(Math.random() * 24);
-      if (words[x].color === false) {
-        words[x].color = "red";
-      } else {
-        i--;
-      }
+    // check if that word has an assigned color property, if not set .color = red
+    if (words[x].color === false) {
+      words[x].color = "red";
+    // if the word has a color already, reiterate the loop on a different word
+    } else {
+      i--;
+    }
   }
 }
+
+// see 'assignRed()' for notes
 function assignBlue () {
-// generate a random number, x = 0-25
   for (let i = 0; i < 8; i++) {
     let x = Math.floor(Math.random() * 24);
-      if (words[x].color === false) {
-        words[x].color = "blue";
-      } else {
-        i--;
-      }
+    if (words[x].color === false) {
+      words[x].color = "blue";
+    } else {
+      i--;
+    }
   }
 }
+
+// since blue and red are all assigned, make the rest neutral
 function assignNeutral() {
   for (let i = 0; i < words.length; i++) {
     if (words[i].color === false) {
@@ -112,6 +114,7 @@ function assignNeutral() {
   }
 }
 
+//give all cards a 'data-card-color' property based off the word's colour assignment
 function assignWord() {
   for (let i = 0; i < cards.length; i++) {
     let cardContent = document.getElementById('word' + i);
@@ -121,6 +124,7 @@ function assignWord() {
   }
 }
 
+//strip colours from all cards on resetting the board
 function removeColor() {
   for (let i = 0; i < words.length; i++) {
     let currentCard = document.getElementById('card' + i);
@@ -130,7 +134,7 @@ function removeColor() {
   }
 }
 
-// added to an eventListener, this checks the card colour and scores game accordingly
+// eventListener checks card colours and scores game accordingly
 function score() {
   let cardColor = this.getAttribute('data-card-color');
   if (cardColor === 'red') {

@@ -11,6 +11,18 @@ body {
   background-size: auto;
   background-position: top;
 }
+/*---- added for groceries ----*/
+.groceryList {
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+/*---- remove above! ----*/
+
 .navBar {
   font-family: Arial, Helvetica, sans-serif;
   display: flex;

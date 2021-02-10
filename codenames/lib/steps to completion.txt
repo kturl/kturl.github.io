@@ -11,22 +11,11 @@
 
 ----the onclick event will toggle the colour change and the colour property will do nothing until the card is clicked [DONE]
 
-- change click activity (if it's red card and red clicks, confirm and add point, change card color to red. if it's red card and blue clicks it, switch to red's turn, give pt to red, etc) [IN PROGRESS]
-
--> add redScore and blueScore variables:
-
-let redScore = 0;
-let blueScore = 0;
-
--> onclick()
-  if (data-card-color === 'red') {
-    redScore++;
-}
+- change click activity - if it's red card and red clicks, confirm and add point, change card color [DONE]
+--if it's red card and blue clicks it, switch to red's turn [IN PROGRESS]
 
 -- on a win, show all remaining cards and colours
-
+--- change to opposite team starting
 something like:
-
-onclick => if (
 
 
