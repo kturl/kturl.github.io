@@ -1,0 +1,77 @@
+:root {
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  --card-font: 'Love Ya Like A Sister', cursive;
+
+  /* --- font sizes --- */
+  --xs-font: 16px;
+  --sm-font: 30px;
+  --md-font: 36px;
+  --lg-font: 42px;
+  --xl-font: 60px;
+
+  /* --- colours --- */
+  --blue-green: #71bea1;
+}
+body {
+  background: url(https://motionarray.imgix.net/preview-354542-qMemQ1ocmA-high_0007.jpg);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.container {
+  min-height: 1200px;
+  position: relative;
+  width: 70%
+}
+.row > div {
+  height: 600px;
+  /* position: absolute; */
+  top: 10px;
+  /* left: 0%; */
+  font-family: var(--card-font);
+}
+.row {
+  perspective: 1000px;
+}
+.cover {
+  cursor: pointer;
+  background: linear-gradient(45deg, var(--blue-green) 40%, #e77676 70%, var(--blue-green) 80%);
+  z-index: 1;
+  left: 50%;
+  font-size: var(--xl-font);
+  color: rgb(218, 207, 207);
+  text-align: center;
+  backface-visibility: hidden;
+  transition: transform 2s;
+  transform-style: preserve-3d;
+  transform-origin: left;
+  padding: 10px;
+}
+.left {
+  cursor: pointer;
+  position: absolute;
+  left: 0%;
+  background-color: rgb(231, 206, 206);
+  backface-visibility: hidden;
+  transition: transform 2s;
+  transform-style: preserve-3d;
+  transform-origin: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main {
+  cursor: pointer;
+  background-color: rgb(255, 227, 227);
+  font-size: var(--xs-font);
+  left: 0%;
+  padding: 20px;
+  text-align: justify;
+}
+.is-flipped-left {
+  transform: rotateY(180deg);
+}
+.is-flipped-cover {
+  transform: rotateY(-180deg);
+}
