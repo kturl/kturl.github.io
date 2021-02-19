@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+:root {
+  /* font-size: 50px; */
+  /* font family */
+  --main-font-family: 'Architects Daughter', cursive;
+  /* font sizes */
+  --main-font-size: 40px;
+
+  /* colours */
+  --main-font-color: rgb(50, 0, 143);
+  --button-font-color: rgb(61, 35, 35);
+}
+body {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  /* background: url('https://www.desktopbackground.org/p/2014/01/06/696987_wallpapers-plain-images-heritage-outdoors-bulletin-board-800x600_800x600_h.gif'); */
+  background: url(pineapples.jpg);
+  background-position: top;
+  background-size: auto;
+  /* background-color: dimgrey; */
+}
+ul {
+  list-style: none;
+  padding: 10px 0;
+}
+.fullApp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--main-font-family);
+  font-size: var(--main-font-size);
+  color: var(--main-font-color);
+  padding: 4rem;
+}
+.textInput {
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0em 0.5em;
+  background: linear-gradient(.25turn, rgb(200, 220, 255), rgb(229, 245, 255));
+  box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, 0.582);
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  min-width: 60vw;
+  min-height: 90vh;
+  text-align: center;
+  align-items: center;
+  border: 20px solid rgb(71, 165, 42);
+  border-radius: 3rem;
+  /* background: url('lined-paper.jpg'); */
+  background: linear-gradient(135deg, rgb(187, 199, 221) 65%, rgb(203, 205, 207));
+  /* background-position: center;
+  background-size: contain; */
+  margin: 1rem;
+  text-shadow: 4px 2px 4px rgb(131, 141, 233);
+  box-shadow: 20px 25px 12px 12px rgba(0, 0, 0, 0.493),
+              10px 10px 2px 4px rgb(85, 165, 60),
+              inset 2px 2px 2px 2px rgba(0, 0, 0, 0.582);
+}
+.item {
+  padding: 0em 1em;
+  min-width: 30%;
+}
+.item:hover {
+  cursor: pointer;
+  color: orange;
+}
+li.item.checked {
+  /* background-color: rgba(153, 205, 50, 0.438); */
+  text-decoration: line-through;
+  text-decoration-color: red;
+  /* color: red; */
+}
+.buttonContainer {
+  display: flex;
+
+}
+.button {
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--button-font-color);
+  margin: .25em 1em;
+  padding: 0.25em;
+  border: 3px solid black;
+}
+.textInput, .button {
+  border-radius: 25% 25% 25% 25%;
+}
+.button:hover {
+  background-color: rgb(255, 255, 34);
+  box-shadow: 5px 5px 1px 2px rgb(155, 155, 0),
+              10px 10px 10px 10px rgba(43, 43, 24, 0.842);
+}
+.add {
+  background-color: greenyellow;
+  box-shadow: 4px 6px 1px 2px rgb(53, 78, 15),
+              10px 10px 10px 10px rgba(35, 43, 24, 0.5);
+}
+.clear {
+  background-color: rgb(255, 72, 72);
+  box-shadow: 4px 6px 1px 2px rgb(105, 29, 29),
+              10px 10px 10px 10px rgba(78, 36, 36, 0.5);
+}
