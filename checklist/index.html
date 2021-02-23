@@ -6,18 +6,52 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Groceries</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!----- GLOBAL STYLESHEET ----->
+  <link rel="stylesheet" href="../nav-redux/globalStyles.css" type="text/css">
+  <link rel="stylesheet" href="../nav-redux/navstyles.css" type="text/css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
   <link rel="stylesheet" href="lib/main.css">
 </head>
 
 <body>
-  <div class="fullApp">
-    <!-- <form id="myForm"> -->
-    <input id="userInput" class="textInput" type="text" placeholder="New Item..." autofocus="autofocus">
-    <div class="buttonContainer">
-      <input id="submitButton" class="button add" type="submit" value="ADD ITEM">
-      <input id="clearButton" class="button clear" type="submit" value="CLEAR LIST">
+  <div class="navBar">
+    <a title="Home" href="../nav-redux/home.html">
+      <div class="navItem homeBtn">Home</div>
+    </a>
+    <div id="navMenu" class="navItems">
+      <a title="Paper, Scissors, Rock!" href="../paper-scissors-rock/index.html">
+        <div class="navItem">Paper, Scissors, Rock!</div>
+      </a>
+      <a title="Codenames" href="../codenames/index.html">
+        <div class="navItem">Codenames</div>
+      </a>
+      <a title="#" href="index.html">
+        <div class="navItem">Checklist</div>
+      </a>
+      <a title="#" href="#">
+        <div class="navItem">Link 4</div>
+      </a>
+      <a title="#" href="#">
+        <div class="navItem">Link 5</div>
+      </a>
     </div>
-    <!-- </form> -->
+    <div title="Toggle Menu" id="toggle" class="navItem toggle"><i id="carot" class="far fa-caret-square-down" style="font-size: 1.5em;"></i></div> 
+    <a title="Sign Out" href="../index.html">
+      <div class="navItem signOut">Sign Out</div>
+    </a>
+  </div>
+  
+  <div class="fullApp">
+    <form id="myForm" class="form">
+  <!-- FIGURE OUT HOW TO USE THE FORM CORRECTLY -->
+      <input id="userInput" class="textInput" type="text" placeholder="Add New Item..." autofocus="autofocus">
+      <div class="buttonContainer">
+        <input id="submitButton" class="button add" type="submit" value="ADD ITEM">
+        <input id="staplesButton" class="button staples" type="submit" value="STAPLES">
+        <input id="clearButton" class="button clear" type="submit" value="CLEAR LIST">
+      </div>
+    </form>
     <ul id="list" class="list">
     </ul>
   </div>
