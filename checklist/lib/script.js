@@ -80,6 +80,9 @@ ul.addEventListener('click', e => {
     removeTodo(itemKey);
   }
 });
+//if (todoList.length === 0) {
+//  emptyState.
+//}
 
 function clearList() {
   ul.innerHTML = '';

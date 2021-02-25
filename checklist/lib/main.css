@@ -9,13 +9,15 @@
   /* --main-font-family: Arial, Helvetica, sans-serif; */
   --main-font-family: 'Kalam', cursive;
   /* font sizes */
+  --font-60: 60px;
   --font-40: 40px;
   --font-30: 30px;
   --font-20: 20px;
   /* colours */
   --main-font-color: rgb(50, 0, 143);
+  --empty-font-color: rgba(50, 0, 143, 0.7);
   --button-font-color: rgb(61, 35, 35);
-  --board-edge-color: rgb(255, 244, 220);
+  --board-edge-color: rgb(240, 229, 80);
 }
 * {
   box-sizing: border-box;
@@ -59,8 +61,8 @@ ul {
 .list {
   display: flex;
   flex-direction: column;
+  align-items: top;
   width: 90%;
-  min-height: 12rem;
   border: 20px solid var(--board-edge-color);
   border-radius: 3rem;
   background: linear-gradient(135deg, rgb(187, 199, 221) 65%, rgb(203, 205, 207));
@@ -85,7 +87,6 @@ ul {
 }
 .itemButton {
   font-family: inherit;
-  /* text-align: center; */
   vertical-align: middle;
   display: inline-flex;
   justify-content: center;
@@ -117,7 +118,6 @@ ul {
 }
 .buttonContainer {
   display: flex;
-  /* border: 2px solid black; */
 }
 .button {
   font-size: var(--font-30);
@@ -155,6 +155,24 @@ ul {
   background-color: rgb(255, 72, 72);
   box-shadow: 4px 6px 1px 2px rgb(105, 29, 29),
               10px 10px 10px 10px rgba(78, 36, 36, 0.5);
+}
+.fa-list-alt {
+  font-size: var(--font-60);
+  margin-top: 10px;
+}
+.empty-state {
+  display: none;
+  color: var(--empty-font-color);
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+ul:empty {
+  display: none;
+}
+ul:empty + .empty-state {
+  display: flex;
 }
 
 /* add mobile responsiveness */
