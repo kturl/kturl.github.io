@@ -2,20 +2,36 @@
 // LEARN HOW TO STORE THE LIST EVEN AFTER EXITING SITE
 //MAYBE STORE/RETRIEVE THE DATA FROM A GOOGLE SHEETS DOCUMENT?
 const submitButton = document.getElementById('submitButton');
+const staplesButton = document.getElementById('staplesButton');
 const clearButton = document.getElementById('clearButton');
 const userInput = document.getElementById('userInput');
 let ul = document.getElementById('list');
 // const itemClickable = document.querySelectorAll('.item');
 let todoList = [];
+const staples = ['eggs', 'milk', 'bread', 'spinach', 'lettuce', 'peppers', 'cilantro', 'limes'];
 
 function addTodo(text) {
   const todo = {
     text,
     checked: false,
-    id: Date.now()
+    id: Math.ceil(Math.random() * 1000000)
   };
-  todoList.push(todo);
-  renderTodo(todo);
+//avoid doubles by using todoList.map() to get an array of just the text property and check if the new item is present
+  let items = todoList.map(a => a.text);
+//if it is not present, add it to the list
+  if (!items.includes(todo.text)) {
+    todoList.push(todo);
+    renderTodo(todo);
+  }
+}
+
+staplesButton.addEventListener('click', addStaples);
+function addStaples() {
+  for (let i = 0; i < staples.length; i++) {
+    addTodo(staples[i]);
+  }
+  // staples.forEach(item => addTodo(item));
+  // userInput.focus();
 }
 
 function toggleDone(key) {
@@ -80,11 +96,10 @@ ul.addEventListener('click', e => {
     removeTodo(itemKey);
   }
 });
-//if (todoList.length === 0) {
-//  emptyState.
-//}
 
 function clearList() {
   ul.innerHTML = '';
+//setting the array.length to 0 clears it easily. Could otherwise .splice(0, array.length). Both are similar in performance.
+  todoList.length = 0;
 }
 clearButton.addEventListener('click', clearList);
