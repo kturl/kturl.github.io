@@ -5,12 +5,14 @@ const submitButton = document.getElementById('submitButton');
 const staplesButton = document.getElementById('staplesButton');
 const clearButton = document.getElementById('clearButton');
 const userInput = document.getElementById('userInput');
-let ul = document.getElementById('list');
-// const itemClickable = document.querySelectorAll('.item');
+const ul = document.getElementById('list');
+const sl = document.getElementById('sideList');
+
 let todoList = [];
-const staples = ['eggs', 'milk', 'bread', 'spinach', 'lettuce', 'peppers', 'cilantro', 'limes'];
+const staples = ['spinach', 'lettuce', 'peppers', 'onions', 'garlic', 'apples', 'bananas', 'limes', 'bread', 'tortillas', 'english muffins', 'bacon', 'beef', 'chicken', 'cheese', 'cottage cheese', 'sour cream', 'yogurt', 'eggs', 'frozen fruit/veggie', 'beans', 'tomato paste'];
 
 function addTodo(text) {
+  // text.toLowerCase();
   const todo = {
     text,
     checked: false,
@@ -55,7 +57,7 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   const text = userInput.value.trim();
   if (text !== '') {
-    addTodo(text);
+    addTodo(text.toLowerCase());
     userInput.value = '';
     userInput.focus();
   }
@@ -103,3 +105,15 @@ function clearList() {
   todoList.length = 0;
 }
 clearButton.addEventListener('click', clearList);
+
+function displayList() {
+  while (!todoList.length === 0) {
+    let displayList = todoList;
+    for (let i = 0; i < todoList.length; i++) {
+      
+    }
+  }
+}
+
+//ADD SHOW/NOT SHOW BUTTON FOR 'STAPLES' LIST
+//ADD FUNCTION TO SORT BY FOOD TYPE (add property)

@@ -3,21 +3,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 
 :root {
-  /* font-size: 50px; */
+  /* font-size: 10px; */
   /* font family */
   /* --main-font-family: 'Architects Daughter', cursive; */
   /* --main-font-family: Arial, Helvetica, sans-serif; */
   --main-font-family: 'Kalam', cursive;
   /* font sizes */
-  --font-60: 60px;
-  --font-40: 40px;
-  --font-30: 30px;
   --font-20: 20px;
+  --font-30: 30px;
+  --font-40: 40px;
+  --font-60: 60px;
   /* colours */
   --main-font-color: rgb(50, 0, 143);
   --empty-font-color: rgba(50, 0, 143, 0.7);
   --button-font-color: rgb(61, 35, 35);
   --board-edge-color: rgb(240, 229, 80);
+  --opt1-color: greenyellow;
+  --opt2-color: rgb(47, 172, 255);
+  --opt3-color: rgb(255, 72, 72);
+  /* --opt4-color: ; */
+  --hover-color: rgb(255, 255, 34);
+  --hover-txt-color: orange;
+  --check-yes-color: rgb(60, 151, 0);
 }
 * {
   box-sizing: border-box;
@@ -35,7 +42,7 @@ ul {
   list-style: none;
   padding: 10px 0;
 }
-.fullApp {
+.userInterface {
   display: flex;
   flex-direction: column;
   margin: 2rem;
@@ -58,7 +65,7 @@ ul {
   background: linear-gradient(.25turn, rgba(200, 220, 255, .9), rgba(229, 245, 255, 0.9));
   box-shadow: inset 2px 2px 2px 2px rgba(0, 0, 0, 0.582);
 }
-.list {
+.listContainer {
   display: flex;
   flex-direction: column;
   align-items: top;
@@ -104,7 +111,7 @@ ul {
   content: '✓';
   font-size: 50px;
   display: none;
-  color: rgb(60, 151, 0);
+  color: var(--check-yes-color);
 }
 .done .checkBox::before {
   display: inline;
@@ -113,14 +120,14 @@ ul {
   text-decoration: line-through;
 }
 .delete {
-  color: rgb(255, 72, 72);
+  color: var(--opt3-color);
   font-size: var(--font-20);
 }
 .buttonContainer {
   display: flex;
 }
 .button {
-  font-size: var(--font-30);
+  font-size: var(--font-40);
   font-family: inherit;
   color: var(--button-font-color);
   margin: .25em .5em;
@@ -131,9 +138,9 @@ ul {
   border-radius: 25% 25% 25% 25%;
 }
 .button:hover {
-  background-color: rgb(255, 255, 34);
+  background-color: var(--hover-color);
   box-shadow: 5px 5px 1px 2px rgb(155, 155, 0),
-              10px 10px 10px 10px rgba(43, 43, 24, 0.842);
+              10px 10px 10px 10px rgba(43, 43, 24, 0.85);
 }
 *:focus {
   outline: none;
@@ -142,17 +149,17 @@ ul {
   border-color: orange; 
 }
 .add {
-  background-color: greenyellow;
+  background-color: var(--opt1-color);
   box-shadow: 4px 6px 1px 2px rgb(53, 78, 15),
               10px 10px 10px 10px rgba(35, 43, 24, 0.5);
 }
 .staples {
-  background-color: rgb(47, 172, 255);
+  background-color: var(--opt2-color);
   box-shadow: 4px 6px 1px 2px rgb(15, 58, 78),
               10px 10px 10px 10px rgba(35, 43, 24, 0.5);
 }
 .clear {
-  background-color: rgb(255, 72, 72);
+  background-color: var(--opt3-color);
   box-shadow: 4px 6px 1px 2px rgb(105, 29, 29),
               10px 10px 10px 10px rgba(78, 36, 36, 0.5);
 }
@@ -168,11 +175,19 @@ ul {
   width: 100%;
   padding: 20px;
 }
-ul:empty {
+#list:empty {
   display: none;
 }
-ul:empty + .empty-state {
+#list:empty + .empty-state {
   display: flex;
 }
 
 /* add mobile responsiveness */
+@media only screen and (max-width: 430px) {
+  :root {
+    --font-20: 10px;
+    --font-30: 15px;
+    --font-40: 20px;
+    --font-60: 25px;
+  }
+}

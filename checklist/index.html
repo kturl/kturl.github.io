@@ -41,24 +41,27 @@
       <div class="navItem signOut">Sign Out</div>
     </a>
   </div>
-  
-  <div class="fullApp">
-    <form id="myForm" class="form">
-  <!-- FIGURE OUT HOW TO USE THE FORM CORRECTLY -->
-      <input id="userInput" class="textInput" type="text" placeholder="Add New Item..." autofocus="autofocus">
-      <div class="buttonContainer">
-        <input id="submitButton" class="button add" type="submit" value="ADD ITEM">
-        <input id="staplesButton" class="button staples" type="submit" value="STAPLES">
-        <input id="clearButton" class="button clear" type="submit" value="CLEAR LIST">
-      </div>
-    </form>
-    <div class="list">
-      <ul id="list"></ul>
-      <div class="empty-state">
-        <span style="font-size: var(--font-30)">Add some stuff...</span>
-        <i class="far fa-list-alt"></i>
-      </div>
-    </div> 
+  <div class="wholeApp">
+    <div class="userInterface">
+      <form id="myForm" class="form">
+        <input id="userInput" class="textInput" type="text" placeholder="Add New Item..." autofocus="autofocus">
+        <div class="buttonContainer">
+          <input id="submitButton" class="button add" type="submit" value="ADD">
+          <input id="staplesButton" class="button staples" type="submit" value="STAPLES">
+          <input id="clearButton" class="button clear" type="submit" value="CLEAR">
+        </div>
+      </form>
+      <div class="listContainer">
+        <ul id="list"></ul>
+        <div class="empty-state">
+          <span style="font-size: var(--font-30)">Add some stuff...</span>
+          <i class="far fa-list-alt"></i>
+        </div>
+      </div> 
+    </div>
+    <div class="sideListContainer">
+      <ul id="sideList"></ul>
+    </div>
   </div>
 
 <script src="lib/script.js" async defer></script>
