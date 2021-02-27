@@ -115,5 +115,17 @@ function clearList() {
 }
 clearButton.addEventListener('click', clearList);
 
+document.addEventListener('DOMContentLoaded', () => {
+  const ref = localStorage.getItem('todoList');
+  if (ref) {
+    todoList = JSON.parse(ref);
+    todoList.forEach(t => {
+      renderTodo(t);
+      // if (!todoList.contains(a => a = t.text)) {
+        // todoList.push(t);
+      // }
+    });
+  }
+});
 //ADD SHOW/NOT SHOW BUTTON FOR 'STAPLES' LIST
 //ADD FUNCTION TO SORT BY FOOD TYPE (add property)
