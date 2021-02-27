@@ -10,6 +10,12 @@ const sl = document.getElementById('sideList');
 
 let todoList = [];
 const staples = ['spinach', 'lettuce', 'peppers', 'onions', 'garlic', 'apples', 'bananas', 'limes', 'bread', 'tortillas', 'english muffins', 'bacon', 'beef', 'chicken', 'cheese', 'cottage cheese', 'sour cream', 'yogurt', 'eggs', 'frozen fruit/veggie', 'beans', 'tomato paste'];
+let savedTodos;
+
+function store() {
+  savedTodos = JSON.stringify(todoList);
+  localStorage.setItem('todoList', savedTodos);
+}
 
 function addTodo(text) {
   // text.toLowerCase();
@@ -24,6 +30,7 @@ function addTodo(text) {
   if (!items.includes(todo.text)) {
     todoList.push(todo);
     renderTodo(todo);
+    store();
   }
 }
 
@@ -40,6 +47,7 @@ function toggleDone(key) {
   const index = todoList.findIndex(item => item.id === Number(key));
   todoList[index].checked = !todoList[index].checked;
   renderTodo(todoList[index]);
+  store();
 }
 
 function removeTodo(key) {
@@ -50,6 +58,7 @@ function removeTodo(key) {
   }
   todoList = todoList.filter(item => item.id !== Number(key));
   renderTodo(todo);
+  store();
 }
 
 const form = document.getElementById('myForm');
@@ -105,15 +114,6 @@ function clearList() {
   todoList.length = 0;
 }
 clearButton.addEventListener('click', clearList);
-
-function displayList() {
-  while (!todoList.length === 0) {
-    let displayList = todoList;
-    for (let i = 0; i < todoList.length; i++) {
-      
-    }
-  }
-}
 
 //ADD SHOW/NOT SHOW BUTTON FOR 'STAPLES' LIST
 //ADD FUNCTION TO SORT BY FOOD TYPE (add property)
