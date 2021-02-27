@@ -115,15 +115,16 @@ function clearList() {
 }
 clearButton.addEventListener('click', clearList);
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   const ref = localStorage.getItem('todoList');
   if (ref) {
-    todoList = JSON.parse(ref);
-    todoList.forEach(t => {
-      renderTodo(t);
-      // if (!todoList.contains(a => a = t.text)) {
-        // todoList.push(t);
-      // }
+    savedTodoList = JSON.parse(ref);
+    savedTodoList.forEach(todo => {
+      let items = todoList.map(a => a.text);
+      if (!items.includes(todo.text)) {
+        todoList.push(todo);
+        renderTodo(todo);
+      }
     });
   }
 });

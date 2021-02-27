@@ -57,7 +57,7 @@ ul {
   color: var(--main-font-color);
   padding: 1rem;
   min-width: 25rem;
-  border: 2px solid black;
+  /* border: 2px solid black; */
 }
 .form {
   display: flex;
