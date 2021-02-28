@@ -112,6 +112,7 @@ function clearList() {
   ul.innerHTML = '';
 //setting the array.length to 0 clears it easily. Could otherwise .splice(0, array.length). Both are similar in performance.
   todoList.length = 0;
+  store();
 }
 clearButton.addEventListener('click', clearList);
 
