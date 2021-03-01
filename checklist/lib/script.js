@@ -9,7 +9,7 @@ const ul = document.getElementById('list');
 const sl = document.getElementById('sideList');
 
 let todoList = [];
-const staples = ['spinach', 'lettuce', 'peppers', 'onions', 'garlic', 'apples', 'bananas', 'limes', 'bread', 'tortillas', 'english muffins', 'bacon', 'beef', 'chicken', 'cheese', 'cottage cheese', 'sour cream', 'yogurt', 'eggs', 'frozen fruit/veggie', 'beans', 'tomato paste'];
+const staples = ['spinach', 'lettuce', 'peppers', 'onions', 'garlic', 'apples', 'bananas', 'limes', 'bread', 'tortillas', 'english muffins', 'bacon', 'beef', 'chicken', 'lunch meat', 'cheese', 'cottage cheese', 'sour cream', 'yogurt', 'eggs'];
 let savedTodos;
 
 function store() {
@@ -96,7 +96,7 @@ function renderTodo(todo) {
   }
 }
 ul.addEventListener('click', e => {
-  if (e.target.classList.contains('checkBox')){
+  if (e.target.classList.contains('item') || e.target.classList.contains('checkBox')) {
     const itemKey = e.target.parentElement.dataset.key;
     toggleDone(itemKey);
   }

@@ -12,19 +12,21 @@
   --font-20: 20px;
   --font-30: 30px;
   --font-40: 40px;
+  --font-50: 50px;
   --font-60: 60px;
   /* colours */
-  --main-font-color: rgb(50, 0, 143);
+  --main-font-color: rgb(15, 114, 121);
   --empty-font-color: rgba(50, 0, 143, 0.7);
-  --button-font-color: rgb(61, 35, 35);
+  --button-font-color: rgb(18, 18, 20);
   --board-edge-color: rgb(240, 229, 80);
-  --opt1-color: greenyellow;
-  --opt2-color: rgb(47, 172, 255);
-  --opt3-color: rgb(255, 72, 72);
+  --opt1-color: linear-gradient(rgb(103, 172, 0), rgb(237, 255, 218));
+  --opt2-color: linear-gradient(rgb(47, 172, 255), rgb(212, 254, 255));
+  --opt3-color: linear-gradient(rgb(255, 72, 72), rgb(255, 219, 219));
   /* --opt4-color: ; */
   --hover-color: rgb(255, 255, 34);
   --hover-txt-color: orange;
-  --check-yes-color: rgb(60, 151, 0);
+  --check-yes-color: rgb(231, 221, 75);
+  --delete-item-color: red;
 }
 * {
   box-sizing: border-box;
@@ -40,7 +42,7 @@ body {
 }
 ul {
   list-style: none;
-  padding: 10px 0;
+  padding: 10px;
 }
 .wholeApp {
   display: flex;
@@ -50,14 +52,13 @@ ul {
 .userInterface, .sideInterface {
   display: flex;
   flex-direction: column;
-  margin-top: 4rem;
+  margin-top: 1em;
   align-items: center;
   font-family: var(--main-font-family);
   font-size: var(--font-40);
   color: var(--main-font-color);
-  padding: 1rem;
-  min-width: 25rem;
-  /* border: 2px solid black; */
+  padding: 1em;
+  min-width: 18em;
 }
 .form {
   display: flex;
@@ -77,9 +78,9 @@ ul {
   align-items: top;
   width: 90%;
   border: 16px solid var(--board-edge-color);
-  border-radius: 3rem;
+  border-radius: 1em;
   background: linear-gradient(135deg, rgb(187, 199, 221) 65%, rgb(203, 205, 207));
-  margin: 1rem;
+  margin: .5em;
   text-shadow: 4px 2px 4px rgb(131, 141, 233);
   box-shadow: 5px 5px 12px 12px rgba(0, 0, 0, 0.493),
               3px 4px 2px 4px var(--board-edge-color),
@@ -88,8 +89,9 @@ ul {
 .item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin: 0 1em;
+  align-items: baseline;
+  margin: 0;
+  padding: 0 10px;
 }
 .item:hover {
   cursor: pointer;
@@ -97,6 +99,7 @@ ul {
 }
 .item span {
   flex-grow: 1;
+  /* padding: 0 1em; */
 }
 .itemButton {
   font-family: inherit;
@@ -107,15 +110,16 @@ ul {
   cursor: pointer;
   border: 3px solid var(--main-font-color);
   text-shadow: 4px 2px 4px rgb(131, 141, 233);
-  padding: 8px;
+  padding: 14px;
+  margin: 0 0.5em;
   width: var(--font-30);
   height: var(--font-30);
-  border-radius: 50%;
+  border-radius: 25%;
   box-shadow: 4px 2px 4px rgb(131, 141, 233);
 }
 .checkBox::before {
   content: '✓';
-  font-size: 50px;
+  font-size: var(--font-50);
   display: none;
   color: var(--check-yes-color);
 }
@@ -126,7 +130,7 @@ ul {
   text-decoration: line-through;
 }
 .delete {
-  color: var(--opt3-color);
+  color: var(--delete-item-color);
   font-size: var(--font-20);
 }
 *:focus {
@@ -150,22 +154,22 @@ ul {
   border-radius: 25% 25% 25% 25%;
 }
 .add {
-  background-color: var(--opt1-color);
+  background: var(--opt1-color);
   box-shadow: 2px 4px 1px 2px rgb(53, 78, 15),
   3px 3px 10px 10px rgba(0, 0, 0, 0.5);
 }
 .staples {
-  background-color: var(--opt2-color);
+  background: var(--opt2-color);
   box-shadow: 2px 4px 1px 2px rgb(15, 58, 78),
   3px 3px 10px 10px rgba(0, 0, 0, 0.5);
 }
 .clear {
-  background-color: var(--opt3-color);
+  background: var(--opt3-color);
   box-shadow: 2px 4px 1px 2px rgb(105, 29, 29),
   3px 3px 10px 10px rgba(0, 0, 0, 0.5);
 }
 .button:hover {
-  background-color: var(--hover-color);
+  background: var(--hover-color);
   box-shadow: 2px 4px 1px 2px rgb(155, 155, 0),
               7px 7px 10px 10px rgba(0, 0, 0, 0.5);
 }
@@ -189,11 +193,15 @@ ul {
 }
 
 /* add mobile responsiveness */
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 550px) {
   :root {
     --font-20: 10px;
     --font-30: 15px;
     --font-40: 20px;
-    --font-60: 25px;
+    --font-50: 25px;
+    --font-60: 30px;
+  }
+  .itemButton {
+    padding: 5px;
   }
 }
