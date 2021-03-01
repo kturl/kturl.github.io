@@ -9,7 +9,7 @@ const ul = document.getElementById('list');
 const sl = document.getElementById('sideList');
 
 let todoList = [];
-const staples = ['spinach', 'lettuce', 'peppers', 'onions', 'garlic', 'apples', 'bananas', 'limes', 'bread', 'tortillas', 'english muffins', 'bacon', 'beef', 'chicken', 'lunch meat', 'cheese', 'cottage cheese', 'sour cream', 'yogurt', 'eggs'];
+const staples = ['spinach', 'lettuce', 'peppers', 'onions', 'garlic', 'apples', 'bananas', 'limes', 'bread', 'bacon', 'beef', 'chicken', 'lunch meat', 'cheese', 'cottage cheese', 'sour cream', 'yogurt', 'eggs'];
 let savedTodos;
 
 function store() {
