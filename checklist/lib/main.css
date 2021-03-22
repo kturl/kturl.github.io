@@ -192,6 +192,24 @@ ul {
   display: flex;
 }
 
+.container {
+  /* background-color: #333; */
+  /* padding: 1rem; */
+  /* margin: 1rem; */
+}
+
+.draggable {
+  /* background-color: rgb(255, 230, 1); */
+  /* padding: 1rem; */
+  /* border: 3px solid rgb(0, 183, 255); */
+  /* border-radius: 15px; */
+  cursor: move;
+}
+
+.draggable.dragging {
+  opacity: 0.5;
+}
+
 /* add mobile responsiveness */
 @media only screen and (max-width: 550px) {
   :root {
@@ -204,4 +222,13 @@ ul {
   .itemButton {
     padding: 5px;
   }
+}
+.produce {
+  background-color: rgb(25, 207, 25);
+}
+.meat {
+  background-color: rgb(168, 102, 41);
+}
+.dairy {
+  background-color: rgb(3, 110, 182);
 }

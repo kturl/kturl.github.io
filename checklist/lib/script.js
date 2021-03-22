@@ -1,6 +1,3 @@
-
-// LEARN HOW TO STORE THE LIST EVEN AFTER EXITING SITE
-//MAYBE STORE/RETRIEVE THE DATA FROM A GOOGLE SHEETS DOCUMENT?
 const submitButton = document.getElementById('submitButton');
 const staplesButton = document.getElementById('staplesButton');
 const clearButton = document.getElementById('clearButton');
@@ -11,6 +8,8 @@ const sl = document.getElementById('sideList');
 let todoList = [];
 const staples = ['spinach', 'lettuce', 'peppers', 'onions', 'garlic', 'apples', 'bananas', 'limes', 'bread', 'bacon', 'beef', 'chicken', 'lunch meat', 'cheese', 'cottage cheese', 'sour cream', 'yogurt', 'eggs'];
 let savedTodos;
+let draggables = [];
+let containers;
 
 function store() {
   savedTodos = JSON.stringify(todoList);
@@ -24,13 +23,14 @@ function addTodo(text) {
     checked: false,
     id: Math.ceil(Math.random() * 1000000)
   };
-//avoid doubles by using todoList.map() to get an array of just the text property and check if the new item is present
+  //avoid doubles by using todoList.map() to get an array of just the text property and check if the new item is present
   let items = todoList.map(a => a.text);
-//if it is not present, add it to the list
+  //if it is not present, add it to the list
   if (!items.includes(todo.text)) {
     todoList.push(todo);
     renderTodo(todo);
     store();
+    
   }
 }
 
@@ -76,23 +76,27 @@ function renderTodo(todo) {
   const isChecked = todo.checked ? 'done' : '';
   const item = document.querySelector(`[data-key='${todo.id}']`);
   let li = document.createElement('li');
-  li.setAttribute('class', `item ${isChecked}`);
+  li.setAttribute('class', `item ${isChecked} draggable`);
+  li.setAttribute('draggable', `true`);
   li.setAttribute('data-key', todo.id);
   li.innerHTML = `
   <div id="${todo.id}" class="itemButton checkBox"></div>
   <span class="item">${todo.text}</span>
   <div id="delete${todo.id}" class="itemButton delete">X</div>
   `;
+  
   if (todo.deleted) {
-    item.remove();
+    item.remove()
     if (todoList.length === 0)
-      list.innerHTML = '';
-    return;
+    list.innerHTML = ''
+    return
   }
   if (item) {
-    ul.replaceChild(li, item);
+    ul.replaceChild(li, item)
+    setDrag(li)
   } else {
-    ul.append(li);
+    ul.append(li)
+    setDrag(li)
   }
 }
 ul.addEventListener('click', e => {
@@ -131,3 +135,44 @@ window.addEventListener('load', () => {
 });
 //ADD SHOW/NOT SHOW BUTTON FOR 'STAPLES' LIST
 //ADD FUNCTION TO SORT BY FOOD TYPE (add property)
+
+//MAKES THE ITEMS DRAGGABLE AND RE-ARRANGABLE
+function setDrag(item) {
+  draggables = document.querySelectorAll('.draggable')
+  // console.log(draggables)
+  item.addEventListener('dragstart', () => {
+    console.log('Dragging...')
+    item.classList.toggle('dragging')
+  })  
+  item.addEventListener('dragend', () => {
+    console.log('Done')
+    item.classList.toggle('dragging')
+  })
+}
+
+container = document.querySelector('.container')
+container.addEventListener('dragover', e => {
+  const draggable = document.querySelector('.dragging')
+  const afterElement = getDragAfterElement(container, e.clientY)
+  // console.log(afterElement)
+  e.preventDefault()
+  if (afterElement == null) {
+    container.appendChild(draggable)
+  } else {
+    container.insertBefore(draggable, afterElement)
+  }
+})
+
+function getDragAfterElement(container, y) {
+  const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
+  return draggableElements.reduce((closest, child) => {
+    const box = child.getBoundingClientRect()
+    const offset = y - box.top - box.height / 2
+    // console.log(closest)
+    if (offset < 0 && offset > closest.offset) {
+      return { offset: offset, element: child }
+    } else {
+      return closest
+    }
+  }, { offset: Number.NEGATIVE_INFINITY }).element
+}
