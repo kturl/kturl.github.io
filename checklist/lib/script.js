@@ -172,7 +172,8 @@ container.addEventListener('dragover', e => {
 })
 container.addEventListener('touchmove', e => {
   const draggable = document.querySelector('.dragging')
-  const afterElement = getDragAfterElement(container, e.clientY)
+  let touchLocation = e.targetTouches[0]
+  const afterElement = getDragAfterElement(container, touchLocation.pageY + 'px')
   // console.log(afterElement)
   e.preventDefault()
   if (afterElement == null) {
