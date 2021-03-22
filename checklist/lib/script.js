@@ -143,8 +143,16 @@ function setDrag(item) {
   item.addEventListener('dragstart', () => {
     console.log('Dragging...')
     item.classList.toggle('dragging')
-  })  
+  })
   item.addEventListener('dragend', () => {
+    console.log('Done')
+    item.classList.toggle('dragging')
+  })
+  item.addEventListener('touchmove', () => {
+    console.log('Dragging...')
+    item.classList.toggle('dragging')
+  })  
+  item.addEventListener('touchend', () => {
     console.log('Done')
     item.classList.toggle('dragging')
   })
