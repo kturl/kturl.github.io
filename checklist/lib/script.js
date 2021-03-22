@@ -148,7 +148,7 @@ function setDrag(item) {
     console.log('Done')
     item.classList.toggle('dragging')
   })
-  item.addEventListener('touchmove', () => {
+  item.addEventListener('touchstart', () => {
     console.log('Dragging...')
     item.classList.toggle('dragging')
   })  
@@ -160,6 +160,17 @@ function setDrag(item) {
 
 container = document.querySelector('.container')
 container.addEventListener('dragover', e => {
+  const draggable = document.querySelector('.dragging')
+  const afterElement = getDragAfterElement(container, e.clientY)
+  // console.log(afterElement)
+  e.preventDefault()
+  if (afterElement == null) {
+    container.appendChild(draggable)
+  } else {
+    container.insertBefore(draggable, afterElement)
+  }
+})
+container.addEventListener('touchmove', e => {
   const draggable = document.querySelector('.dragging')
   const afterElement = getDragAfterElement(container, e.clientY)
   // console.log(afterElement)
